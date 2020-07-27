@@ -39,4 +39,13 @@ class ShardingjdbcDemoApplicationTests {
         System.out.println(list.size());
 	}
 
+	@Test
+	public void testAddDB(){
+		Course course = new Course();
+		course.setCname("java");
+		course.setUserId(1L);
+		course.setCsstatus("free");
+		courseMapper.insert(course);
+	}
+
 }

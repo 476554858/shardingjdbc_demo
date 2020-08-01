@@ -2,7 +2,11 @@ package com.zjx.shardingjdbc_demo;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.zjx.shardingjdbc_demo.bean.Course;
+import com.zjx.shardingjdbc_demo.bean.Udict;
+import com.zjx.shardingjdbc_demo.bean.User;
 import com.zjx.shardingjdbc_demo.mapper.CourseMapper;
+import com.zjx.shardingjdbc_demo.mapper.UdictMapper;
+import com.zjx.shardingjdbc_demo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,12 @@ class ShardingjdbcDemoApplicationTests {
 
 	@Autowired
 	CourseMapper courseMapper;
+
+	@Autowired
+	UserMapper userMapper;
+
+	@Autowired
+	UdictMapper udictMapper;
 
 	@Test
 	void contextLoads() {
@@ -46,6 +56,36 @@ class ShardingjdbcDemoApplicationTests {
 		course.setUserId(1L);
 		course.setCsstatus("free");
 		courseMapper.insert(course);
+	}
+
+	//测试添加user
+	@Test
+	public void test1(){
+		User user = new User();
+		user.setUsername("zx");
+		user.setUstatus("1");
+		userMapper.insert(user);
+	}
+
+	//测试查询 user
+	@Test
+	public void test2(){
+		User user = userMapper.selectById(496322858889248769L);
+		System.out.println(user.toString());
+	}
+
+	//测试公共表查询
+	@Test
+	public void test3(){
+		Udict udict = new Udict();
+		udict.setUstatus("1");
+		udict.setUvalue("xxx");
+		udictMapper.insert(udict);
+	}
+
+	@Test
+	public void test4(){
+		udictMapper.deleteById(496434207942246401L);
 	}
 
 }

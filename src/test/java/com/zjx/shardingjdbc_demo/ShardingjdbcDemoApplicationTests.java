@@ -32,6 +32,28 @@ class ShardingjdbcDemoApplicationTests {
 	void contextLoads() {
 	}
 
+	//测试水平分库
+	@Test
+	public void addCourseDb(){
+		Course course = new Course();
+		course.setCname("javademo");
+		//分库根据user_id
+		course.setUserId(100L);
+		course.setCsstatus("normal");
+		courseMapper.insert(course);
+	}
+
+	//测试水平分库
+	@Test
+	public void findCourseDb(){
+		Course course = new Course();
+		course.setUserId(101L);
+		course.setCid(661265621417197569L);
+		Course course1 = courseMapper.selectOne(course);
+		System.out.println(course1);
+	}
+
+	//测试水平分表
 	@Test
 	public void addCount(){
 		for (int i = 0; i < 10; i++) {
@@ -43,6 +65,8 @@ class ShardingjdbcDemoApplicationTests {
 		}
 	}
 
+
+	//测试水平分表
 	@Test
 	public void find(){
 		List<Course> list = courseMapper.selectList(new EntityWrapper<Course>().isNotNull("cid"));
@@ -58,6 +82,7 @@ class ShardingjdbcDemoApplicationTests {
 		courseMapper.insert(course);
 	}
 
+	//测试垂直分库
 	//测试添加user
 	@Test
 	public void test1(){
@@ -85,7 +110,17 @@ class ShardingjdbcDemoApplicationTests {
 
 	@Test
 	public void test4(){
-		udictMapper.deleteById(496434207942246401L);
+		udictMapper.deleteById(496434769358225409L);
 	}
+
+	//公共表测试查询
+	@Test
+	public void queryUdict(){
+		Udict udict = new Udict();
+		udict.setDictid(1454398192027287553L);
+		Udict udict1 = udictMapper.selectOne(udict);
+		System.out.println(udict1);
+	}
+
 
 }

@@ -73,6 +73,28 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--shardingjdbc 事务依赖-->
+<!--		<dependency>-->
+<!--			<groupId>io.shardingsphere</groupId>-->
+<!--			<artifactId>sharding-transaction-spring-boot-starter</artifactId>-->
+<!--			<version>3.1.0</version>-->
+<!--		</dependency>-->
+
+		<!-- 添加sharding-jdbc依赖 -->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.shardingsphere</groupId>-->
+<!--			<artifactId>shardingsphere-jdbc-core</artifactId>-->
+<!--			<version>5.0.0-alpha</version>-->
+<!--		</dependency>-->
+<!--		&lt;!&ndash; 使用 XA 事务 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.apache.shardingsphere</groupId>-->
+<!--			<artifactId>shardingsphere-transaction-xa-core</artifactId>-->
+<!--			<version>5.0.0-alpha</version>-->
+<!--		</dependency>-->
+
+
 	</dependencies>
 
 	<build>

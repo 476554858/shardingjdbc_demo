@@ -7,6 +7,7 @@ import com.zjx.shardingjdbc_demo.bean.User;
 import com.zjx.shardingjdbc_demo.mapper.CourseMapper;
 import com.zjx.shardingjdbc_demo.mapper.UdictMapper;
 import com.zjx.shardingjdbc_demo.mapper.UserMapper;
+import com.zjx.shardingjdbc_demo.service.CourseService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ class ShardingjdbcDemoApplicationTests {
 
 	@Autowired
 	UdictMapper udictMapper;
+
+//	@Autowired
+//	CourseService courseService;
 
 	@Test
 	void contextLoads() {
@@ -121,6 +125,11 @@ class ShardingjdbcDemoApplicationTests {
 		Udict udict1 = udictMapper.selectOne(udict);
 		System.out.println(udict1);
 	}
+
+//	@Test
+//	public void testXA(){
+//		courseService.testXATranscation();
+//	}
 
 
 }

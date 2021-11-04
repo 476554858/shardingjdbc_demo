@@ -95,7 +95,7 @@ class ShardingjdbcDemoApplicationTests {
 	//测试查询 user
 	@Test
 	public void test2(){
-		User user = userMapper.selectById(496322858889248769L);
+		User user = userMapper.selectById(1456232234569699329L);
 		System.out.println(user.toString());
 	}
 

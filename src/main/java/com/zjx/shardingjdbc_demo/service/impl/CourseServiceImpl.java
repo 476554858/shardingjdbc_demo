@@ -6,12 +6,13 @@ import com.zjx.shardingjdbc_demo.mapper.CourseMapper;
 import com.zjx.shardingjdbc_demo.mapper.UserMapper;
 import com.zjx.shardingjdbc_demo.service.CourseService;
 //import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
+import org.apache.shardingsphere.transaction.annotation.ShardingTransactionType;
 import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-//@Service
+@Service
 public class CourseServiceImpl implements CourseService {
 
     @Autowired
@@ -22,7 +23,7 @@ public class CourseServiceImpl implements CourseService {
 
     //如果用的同一个数据库，可以直接使用local
 //    @ShardingTransactionType(TransactionType.LOCAL)
-//    @ShardingTransactionType(TransactionType.XA)
+    @ShardingTransactionType(TransactionType.XA)
     @Transactional(rollbackFor = Exception.class)
     public void testXATranscation(){
 
@@ -31,6 +32,7 @@ public class CourseServiceImpl implements CourseService {
         user.setUstatus("ok");
         userMapper.insert(user);
 
+        int m = 10/0;
         Course course = new Course();
         course.setCsstatus("ok");
         course.setCname("testxa_course");

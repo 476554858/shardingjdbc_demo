@@ -29,8 +29,8 @@ class ShardingjdbcDemoApplicationTests {
 	@Autowired
 	UdictMapper udictMapper;
 
-//	@Autowired
-//	CourseService courseService;
+	@Autowired
+	CourseService courseService;
 
 	@Test
 	void contextLoads() {
@@ -126,10 +126,10 @@ class ShardingjdbcDemoApplicationTests {
 		System.out.println(udict1);
 	}
 
-//	@Test
-//	public void testXA(){
-//		courseService.testXATranscation();
-//	}
+	@Test
+	public void testXA(){
+		courseService.testXATranscation();
+	}
 
 
 }
